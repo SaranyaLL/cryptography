@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <string.h>
+
+static void display(int intArray[], int length){
+   int i=0;
+   printf("Array : [");
+   for(i = 0; i < length; i++) {
+     
+      printf(" %d ", intArray[i]);
+   }
+   printf(" ]\n ");   
+}
+
+int main() {
+   int i = 0;
+   int intArray[8];
+
+   
+   for ( i = 0; i < 8; i++ ) {
+      intArray[ i ] = 0; 
+   }
+   printf("Array with default data.");
+
+   display(intArray,8);     
+
+   for(i = 0; i < 8; i++) {
+      printf("Adding %d at index %d\n",i,i);
+      intArray[i] = i;
+   }
+   printf("\n");
+   printf("Array after adding data. ");
+   display(intArray,8);
+   int index = 5;
+   intArray[index] = 10;
+
+   printf("Array after updating element at index %d.\n",index);
+   display(intArray,8);
+   printf("Data at index %d:%d\n" ,index,intArray[index]);
+   int value = 4;
+   for(i = 0; i < 8; i++) {
+      if(intArray[i] == value ){
+         printf("value %d Found at index %d \n", intArray[i],i);
+         break;
+      }
+   }
+   return 0;
+}
+
+OUTPUT:
+
+Array with default data.Array : [ 0  0  0  0  0  0  0  0  ]
+ Adding 0 at index 0
+Adding 1 at index 1
+Adding 2 at index 2
+Adding 3 at index 3
+Adding 4 at index 4
+Adding 5 at index 5
+Adding 6 at index 6
+Adding 7 at index 7
+
+Array after adding data. Array : [ 0  1  2  3  4  5  6  7  ]
+ Array after updating element at index 5.
+Array : [ 0  1  2  3  4  10  6  7  ]
+ Data at index 5:10
+value 4 Found at index 4
